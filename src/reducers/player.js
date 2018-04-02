@@ -7,7 +7,7 @@ const playerState = Map({
 });
 
 export default function (state = playerState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case ADD_TO_PLAYER_INVENTORY: {
             const emptyIndex = state.get('inventory').indexOf(null);
             const { payload } = action;
@@ -37,12 +37,12 @@ export default function (state = playerState, action) {
             const capacity = receptacle.getIn(['volume', 'amount']);
 
             // Get the current occupied volume of the receptacle
-            const volume = contents.reduce((v, c) => v += c.get('amount'), 0);
+            const volume = contents.reduce((v, c) => v + c.get('amount'), 0);
 
             // Get the existing contents object if there is a measure of
             // the same substance inside the receptacle
             const existingContentIndex = contents.findIndex(content => {
-                return content.get('substance') === measure.get('substance');
+                return content.getIn(['substance', 'name']) === measure.getIn(['substance', 'name']);
             });
 
             // Add the contents if the substance is not already
@@ -64,7 +64,7 @@ export default function (state = playerState, action) {
             return state.updateIn(['inventory', index], item =>
                 item.updateIn(['contents', existingContentIndex], c =>
                     c.update('amount', a =>
-                        a += measure.get('amount'))));
+                        a + measure.get('amount'))));
         }
 
         default:

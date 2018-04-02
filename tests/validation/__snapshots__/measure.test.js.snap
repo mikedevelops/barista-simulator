@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`measure validation validateMeasureAmount Should throw if the amounts do not match 1`] = `"\\"201\\" is the wrong amount. Expected \\"200\\""`;
+
+exports[`measure validation validateMeaxsureSubstance Should throw if the substance names do not match 1`] = `"\\"SUBSTANCE_WATER\\" is the wrong substance. Expected \\"SUBSTANCE_FILTERED_COFFEE\\""`;

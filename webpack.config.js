@@ -24,5 +24,5 @@ module.exports = {
             inject: 'body'
         })
     ],
-    devtool: 'inline-source-map'
+    devtool: 'source-map'
 }
