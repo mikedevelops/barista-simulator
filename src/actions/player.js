@@ -10,3 +10,7 @@ export const FILL_RECEPTACLE = 'FILL_RECEPTACLE';
 export const fillReceptacle = (receptacle, measure) =>
     ({ type: FILL_RECEPTACLE, payload: { receptacle, measure } });
 
+export const REMOVE_ITEM_FROM_PLAYER_INVENTORY = 'REMOVE_ITEM_FROM_PLAYER_INVENTORY';
+export const removeItemFromPlayerInventory = (receptacle) =>
+    ({ type: REMOVE_ITEM_FROM_PLAYER_INVENTORY, payload: receptacle });
+

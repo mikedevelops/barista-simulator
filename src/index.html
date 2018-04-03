@@ -5,8 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Phaser Sandbox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            border: 5px solid black;
+            margin: 1rem;
+            padding: 1rem;
+            position: relative;
+            height: 100px;
+            min-width: 33%;
+        }
+
+        .box pre {
+            display: block;
+            margin-bottom: .25rem;
+        }
+
+        .label {
+            background-color: white;
+            left: 1rem;
+            padding: 0.25rem 0.5rem;
+            position: absolute;
+            top: -0.75rem;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="container">
+        <div class="box receptacles">
+            <pre class="label">Items</pre>
+            <div class="content"></div>
+        </div>
+        <div class="box equipment">
+            <pre class="label">Equipment</pre>
+            <div class="content"></div>
+        </div>
+        <div class="box orders">
+            <pre class="label">Orders</pre>
+            <div class="content"></div>
+        </div>
+        <div class="box customers">
+            <pre class="label">Customers</pre>
+            <div class="content"></div>
+        </div>
+        <div class="box score">
+            <pre class="label">Score</pre>
+            <div class="content"></div>
+        </div>
+        <div class="box inventory">
+            <pre class="label">Inventory</pre>
+            <div class="content"></div>
+        </div>
+    </div>
 </body>
 </html>

@@ -13,7 +13,17 @@ export const measureValidationWeights = {
             diff = diff * -1;
         }
 
-        return diff / 15;
+        if (diff > 50) {
+            return 3;
+        }
+
+        if (diff > 25) {
+            return 2;
+        }
+
+        if (diff > 10) {
+            return 1;
+        }
     },
     SUBSTANCE: 3
 };

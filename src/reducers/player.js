@@ -1,4 +1,7 @@
-import { ADD_TO_PLAYER_INVENTORY, FILL_RECEPTACLE, USE_EQUIPMENT } from '../actions/player';
+import {
+    ADD_TO_PLAYER_INVENTORY, FILL_RECEPTACLE, GIVE_RECEPTACLE, REMOVE_ITEM, REMOVE_ITEM_FROM_PLAYER_INVENTORY,
+    USE_EQUIPMENT
+} from '../actions/player'
 import { List, Map } from 'immutable'
 
 const playerState = Map({
@@ -18,7 +21,7 @@ export default function (state = playerState, action) {
 
             // TODO: Date.now() might be silly
             return state.updateIn(['inventory', emptyIndex], () =>
-                payload.set('uid', Date.now()));
+                payload.set('id', Date.now()));
         }
 
         case USE_EQUIPMENT: {
@@ -66,6 +69,12 @@ export default function (state = playerState, action) {
                     c.update('amount', a =>
                         a + measure.get('amount'))));
         }
+
+        case REMOVE_ITEM_FROM_PLAYER_INVENTORY:
+            const itemIndex = state.get('inventory').findIndex(item =>
+                item.get('id') === action.payload);
+
+            return state.update('inventory', i => i.set(itemIndex, null));
 
         default:
             return state;

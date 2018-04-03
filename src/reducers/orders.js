@@ -13,10 +13,12 @@ export default function (state = orderState, action) {
 
         case COMPLETE_ORDER:
             const orderIndex = state.get('active').findIndex(o =>
-                o.get('id') === action.payload.get('id'));
+                o.get('id') === action.payload);
+            const order = state.getIn(['active', orderIndex]);
+
             return state
                 .update('active', a => a.delete(orderIndex))
-                .update('complete', c => c.push(action.payload));
+                .update('complete', c => c.push(order));
 
         default:
             return state;
